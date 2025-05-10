@@ -268,29 +268,32 @@ nav {
     margin-bottom: 30px;
 }
 
-/* Home Page Hero */
+/* Home Page Hero
+
 .hero {
     background-image: url('images/hero-home.jpg');
 }
 
+*/
+
 /* Profile Page Hero */
 .profile-hero {
-    background-image: url('images/hero-profile.jpg');
+    background-image: url('img/handshake.png');
 }
 
 /* Services Page Hero */
 .services-hero {
-    background-image: url('images/hero-services.jpg');
+    background-image: url('img/container.png');
 }
 
 /* Gallery Page Hero */
 .gallery-hero {
-    background-image: url('images/hero-gallery.jpg');
+    background-image: url('img/galeri-1.png');
 }
 
 /* Contact Page Hero */
 .contact-hero {
-    background-image: url('images/hero-contact.jpg');
+    background-image: url('img/contact-1.png');
 }
 
 /* Main Content Sections */
@@ -811,10 +814,10 @@ footer {
 
 /* Hero Carousel Styles */
 .hero-carousel {
-    position: relative;
-    height: 500px;
-    margin-top: 70px;
-    overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* browser modern */
+  position: relative;
+  overflow: hidden;
 }
 
 .carousel-container {
@@ -857,15 +860,15 @@ footer {
 
 /* Set different background images for each slide */
 .carousel-slide:nth-child(1) {
-    background-image: url('images/hero-home.jpg');
+    background-image: url('img/globallogistik.png');
 }
 
 .carousel-slide:nth-child(2) {
-    background-image: url('images/hero-global.jpg');
+    background-image: url('img/container.png');
 }
 
 .carousel-slide:nth-child(3) {
-    background-image: url('images/hero-customs.jpg');
+    background-image: url('img/truck.png');
 }
 
 .carousel-nav {
