@@ -98,8 +98,8 @@ const translations = {
         "id": "Alamat"
     },
     "address_value": {
-        "en": "Your Address Here",
-        "id": "Alamat Anda Di Sini"
+        "en": "Aralia Shophouse Block HY 43 No.10, Symphony Horse Statue, Harapan Indah City, Tarumajaya District, Bekasi Regency, West Java 17214",
+        "id": "Ruko Aralia Blok HY 43 No.10, Patung Kuda Symphony, Kota Harapan Indah, Kec.Tarumajaya, Kab.Bekasi, Jawa Barat 17214"
     },
     "phone": {
         "en": "Phone",

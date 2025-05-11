@@ -53,10 +53,9 @@ header {
     top: 0;
     z-index: 1000;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    position: relative;      /* ← agar nav absolute di dalamnya */
-    padding-bottom: 60px;    /* ← ruang untuk nav di bawah header */
 }
 
 /* Logo */
@@ -65,54 +64,19 @@ header {
 }
 
 .logo img {
-    height: 120px;
-    width: 350px;
+    max-height: 100px;
 }
 
-/* Mobile Menu Toggle */
-.mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1001;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+/* Navigation Menu - Updated */
+nav {
+    margin-left: auto; /* Pindahkan nav ke kanan */
 }
 
-/* NAVIGATION BAR */
-header nav {
-    position: absolute;      /* ← posisikan di dalam header */
-    bottom: 0;               /* ← tepat di tepi bawah header */
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: #ffc107;  /* ubah jadi #ffc107 kalau mau kuning */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-/* Garis bawah penuh di bawah header+nav */
-header::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;               /* tepat di bawah nav */
-    height: 3px;             /* ketebalan garis */
-    background-color: #003366; /* warna garis bawah */
-}
-
-/* NAV MENU ITEMS */
 .nav-menu {
     display: flex;
-    justify-content: flex-end; /* rata kanan */
     align-items: center;
-    padding: 0 20px;
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 
@@ -122,23 +86,27 @@ header::after {
 }
 
 .nav-menu li a {
-    display: block;
-    padding: 15px 0;
-    font-weight: bold;
     color: #003366;
-    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 0;
     position: relative;
+    display: block;
+    text-decoration: none;
 }
 
-/* Underline on hover/active */
+.nav-menu li a.active,
+.nav-menu li a:hover {
+    color: #003366;
+}
+
 .nav-menu li a.active::after,
 .nav-menu li a:hover::after {
-    content: "";
+    content: '';
     position: absolute;
-    left: 0;
-    right: 0;
     bottom: 0;
-    height: 3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
     background-color: #003366;
 }
 
@@ -300,29 +268,32 @@ header::after {
     margin-bottom: 30px;
 }
 
-/* Home Page Hero */
+/* Home Page Hero
+
 .hero {
     background-image: url('images/hero-home.jpg');
 }
 
+*/
+
 /* Profile Page Hero */
 .profile-hero {
-    background-image: url('images/hero-profile.jpg');
+    background-image: url('img/handshake.png');
 }
 
 /* Services Page Hero */
 .services-hero {
-    background-image: url('images/hero-services.jpg');
+    background-image: url('img/container.png');
 }
 
 /* Gallery Page Hero */
 .gallery-hero {
-    background-image: url('images/hero-gallery.jpg');
+    background-image: url('img/galeri-1.png');
 }
 
 /* Contact Page Hero */
 .contact-hero {
-    background-image: url('images/hero-contact.jpg');
+    background-image: url('img/contact-1.png');
 }
 
 /* Main Content Sections */
@@ -356,6 +327,10 @@ section h2 {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.service-card p {
+    text-align: justify;
+}
+
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -382,7 +357,7 @@ section h2 {
 .about-preview p {
     margin-bottom: 30px;
     font-size: 1.1rem;
-    text-align: center;
+    text-align: justify;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -684,27 +659,43 @@ section h2 {
 footer {
     background-color: #00c4cc;
     color: #003366;
-    padding: 40px 0 20px;
+    padding: 60px 0 30px;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: 1fr 1fr 1fr; /* Explicit 3-column layout */
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+/* First column - Follow Us / Logo */
+.footer-content > div:nth-child(1) {
+    justify-self: start; /* Align to start of grid cell */
+}
+
+/* Second column - Contact Us */
+.footer-content > div:nth-child(2) {
+    justify-self: center; /* Center in grid cell */
+}
+
+/* Third column - Quick Links */
+.footer-content > div:nth-child(3) {
+    justify-self: end; /* Align to end of grid cell */
+    padding-right: 20px; /* Add some padding on the right */
 }
 
 .footer-logo img {
     height: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .footer-contact h3,
 .footer-links h3 {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .footer-contact h3::after,
@@ -713,43 +704,96 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     background-color: #003366;
 }
 
+/* Contact section improvements - with better alignment */
 .footer-contact p {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: flex-start;
 }
 
 .footer-contact i {
-    margin-right: 10px;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* Improved contact info alignment */
+.footer-contact p span:first-of-type {
+    min-width: 70px; /* Fixed width for labels */
+    display: inline-block;
+}
+
+/* Address specific styling - improved */
+.footer-contact p.address {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact p.address span:first-of-type {
+    min-width: 70px; /* Fixed width for "Address:" label */
+}
+
+.footer-contact p.address span:last-of-type {
+    flex: 1; /* Take remaining space */
+}
+
+/* Quick Links fixes */
+.footer-links {
+    text-align: left; /* Align text to the left */
+}
+
+.footer-links h3 {
+    text-align: left; /* Align heading to the left */
+}
+
+.footer-links h3::after {
+    left: 0; /* Position line from the left */
+    right: auto; /* Remove right positioning */
+}
+
+.footer-links ul {
+    padding-left: 0; /* Remove default padding */
+    text-align: left; /* Align text to the left */
 }
 
 .footer-links ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .footer-links ul li a {
     color: #003366;
     transition: color 0.3s;
+    font-size: 1.05rem;
+    padding: 5px 0;
+    display: inline-block;
 }
 
 .footer-links ul li a:hover {
-    color: #003366;
+    color: #001a33;
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 51, 102, 0.2);
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 1.05rem;
 }
 
 /* WhatsApp Button */
 .whatsapp-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
     width: 60px;
     height: 60px;
     background-color: #25D366;
@@ -766,6 +810,23 @@ footer {
 
 .whatsapp-btn:hover {
     transform: scale(1.1);
+}
+
+/* Position both buttons at the bottom right, stacked vertically but close together */
+.whatsapp-btn.top {
+    bottom: 90px; /* Ubah nilai ini menjadi lebih kecil untuk mendekatkan tombol, misalnya 85px */
+    right: 20px;
+    font-size: 2rem;
+}
+
+.whatsapp-btn.bottom {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Make top button slightly different */
+.whatsapp-btn.top {
+    background-color: #25D366; /* Slightly darker green */
 }
 
 /* Responsive Styles */
@@ -816,9 +877,54 @@ footer {
         padding: 20px;
     }
     
-    .contact-grid,
     .footer-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column on mobile */
+        text-align: left; /* Align text to left instead of center */
+        gap: 30px; /* Reduced gap for mobile */
+    }
+    
+    .footer-content > div:nth-child(1),
+    .footer-content > div:nth-child(2),
+    .footer-content > div:nth-child(3) {
+        justify-self: start; /* Align all columns to left */
+        width: 100%; /* Full width */
+        padding-left: 20px; /* Add consistent left padding */
+        padding-right: 20px; /* Add consistent right padding */
+    }
+    
+    .footer-contact h3::after,
+    .footer-links h3::after {
+        left: 0; /* Align underline to left */
+        right: auto;
+        transform: none; /* Remove transform */
+    }
+    
+    .footer-contact p {
+        justify-content: flex-start; /* Align contact info to left */
+        text-align: left;
+    }
+    
+    .footer-contact p.address {
+        align-items: flex-start; /* Align address to left */
+        text-align: left;
+    }
+    
+    .footer-links {
+        text-align: left; /* Align quick links to left */
+    }
+    
+    .footer-links h3 {
+        text-align: left; /* Align quick links heading to left */
+    }
+    
+    .footer-links ul {
+        text-align: left; /* Align quick links list to left */
+        padding-left: 0; /* Remove default padding */
+    }
+    
+    /* Social icons alignment */
+    .social-icons {
+        justify-content: flex-start; /* Align social icons to left */
     }
 }
 
@@ -839,14 +945,73 @@ footer {
     .filter-btn {
         margin: 5px 0;
     }
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        text-align: left; /* Align text to left instead of center */
+        gap: 30px; /* Reduced gap for mobile */
+    }
+    
+    .footer-content > div:nth-child(1),
+    .footer-content > div:nth-child(2),
+    .footer-content > div:nth-child(3) {
+        justify-self: start; /* Align all columns to left */
+        width: 100%; /* Full width */
+        padding-left: 20px; /* Add consistent left padding */
+        padding-right: 20px; /* Add consistent right padding */
+    }
+    
+    .footer-contact h3::after,
+    .footer-links h3::after {
+        left: 0; /* Align underline to left */
+        right: auto;
+        transform: none; /* Remove transform */
+    }
+    
+    .footer-contact p {
+        justify-content: flex-start; /* Align contact info to left */
+        text-align: left;
+    }
+    
+    .footer-contact p.address {
+        align-items: flex-start; /* Align address to left */
+        text-align: left;
+    }
+    
+    .footer-links {
+        text-align: left; /* Align quick links to left */
+    }
+    
+    .footer-links h3 {
+        text-align: left; /* Align quick links heading to left */
+    }
+    
+    .footer-links ul {
+        text-align: left; /* Align quick links list to left */
+        padding-left: 0; /* Remove default padding */
+    }
+    
+    /* Social icons alignment */
+    .social-icons {
+        justify-content: flex-start; /* Align social icons to left */
+    }
+}
+
+/* Extra small screens (575px and down) */
+@media (max-width: 575px) {
+    .footer-content > div:nth-child(1),
+    .footer-content > div:nth-child(2),
+    .footer-content > div:nth-child(3) {
+        padding-left: 15px; /* Slightly less padding on very small screens */
+        padding-right: 15px;
+    }
 }
 
 /* Hero Carousel Styles */
 .hero-carousel {
-    position: relative;
-    height: 500px;
-    margin-top: 70px;
-    overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* browser modern */
+  position: relative;
+  overflow: hidden;
 }
 
 .carousel-container {
@@ -889,15 +1054,15 @@ footer {
 
 /* Set different background images for each slide */
 .carousel-slide:nth-child(1) {
-    background-image: url('images/hero-home.jpg');
+    background-image: url('img/globallogistik.png');
 }
 
 .carousel-slide:nth-child(2) {
-    background-image: url('images/hero-global.jpg');
+    background-image: url('img/container.png');
 }
 
 .carousel-slide:nth-child(3) {
-    background-image: url('images/hero-customs.jpg');
+    background-image: url('img/truck.png');
 }
 
 .carousel-nav {
@@ -1120,8 +1285,7 @@ img {
     }
     
     .logo img {
-        height: 80px;
-        width: 300px;
+        height: 40px;
     }
     
     /* Mobile menu toggle */
@@ -1263,4 +1427,4 @@ img {
     .nav-menu.active {
         right: 0; /* Changed from left to right */
     }
-} 
+}

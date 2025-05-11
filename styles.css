@@ -6,9 +6,48 @@
     font-family: 'Arial', sans-serif;
 }
 
+/* Global Background Image */
 body {
     line-height: 1.6;
     color: #333;
+    background-image: url('img/world-map.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-color: #fff; /* Fallback color */
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Optional: Subtle animation for background */
+@keyframes subtle-float {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: center 52%;
+    }
+    100% {
+        background-position: center;
+    }
+}
+
+body {
+    animation: subtle-float 20s ease-in-out infinite;
+}
+
+/* Add overlay to make content readable */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    z-index: -1;
 }
 
 .container {
@@ -46,7 +85,7 @@ img {
 
 /* Header */
 header {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95); /* More opaque white for header */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -238,6 +277,7 @@ nav {
     color: #fff;
     margin-top: 70px;
     position: relative;
+    z-index: 1;
 }
 
 .hero::before {
@@ -305,6 +345,15 @@ section {
     margin-bottom: 60px;
 }
 
+/* Ensure content sections have proper background */
+main section {
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
 section h2 {
     font-size: 2rem;
     margin-bottom: 30px;
@@ -327,6 +376,10 @@ section h2 {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.service-card p {
+    text-align: justify;
+}
+
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -346,34 +399,80 @@ section h2 {
 
 /* About Preview Section */
 .about-preview {
-    background-color: #f5f5f5;
     padding: 60px 0;
+    background-color: rgba(245, 245, 245, 0.8);
+    text-align: center;
 }
 
 .about-preview p {
-    margin-bottom: 30px;
+    text-align: justify;
+    color: #003366;
     font-size: 1.1rem;
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 40px;
 }
 
-.about-preview .btn {
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
     display: block;
-    width: 200px;
-    text-align: center;
-    margin: 0 auto;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: left;
+    color: #003366;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.about-content .btn {
+    margin-top: 20px;
 }
 
 /* World Map Background */
 .world-map-bg {
-    background-image: url('images/world-map-dots.png');
+    background-image: url('img/world-map.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     padding: 60px 20px;
     text-align: center;
+    position: relative;
+}
+
+.world-map-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: -1;
+}
+
+.world-map-bg .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* About Section */
@@ -655,27 +754,45 @@ section h2 {
 footer {
     background-color: #00c4cc;
     color: #003366;
-    padding: 40px 0 20px;
+    padding: 60px 0 30px;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: 1fr 1fr 1fr; /* Explicit 3-column layout */
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+/* First column - Follow Us / Logo */
+.footer-content > div:nth-child(1) {
+    justify-self: start; /* Align to start of grid cell */
+}
+
+/* Second column - Contact Us */
+.footer-content > div:nth-child(2) {
+    justify-self: center; /* Center in grid cell */
+}
+
+/* Third column - Quick Links */
+.footer-content > div:nth-child(3) {
+    justify-self: end; /* Align to end of grid cell */
+    padding-right: 20px; /* Add some padding on the right */
 }
 
 .footer-logo img {
     height: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .footer-contact h3,
 .footer-links h3 {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .footer-contact h3::after,
@@ -684,43 +801,96 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     background-color: #003366;
 }
 
+/* Contact section improvements - with better alignment */
 .footer-contact p {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: flex-start;
 }
 
 .footer-contact i {
-    margin-right: 10px;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* Improved contact info alignment */
+.footer-contact p span:first-of-type {
+    min-width: 70px; /* Fixed width for labels */
+    display: inline-block;
+}
+
+/* Address specific styling - improved */
+.footer-contact p.address {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact p.address span:first-of-type {
+    min-width: 70px; /* Fixed width for "Address:" label */
+}
+
+.footer-contact p.address span:last-of-type {
+    flex: 1; /* Take remaining space */
+}
+
+/* Quick Links fixes */
+.footer-links {
+    text-align: left; /* Align text to the left */
+}
+
+.footer-links h3 {
+    text-align: left; /* Align heading to the left */
+}
+
+.footer-links h3::after {
+    left: 0; /* Position line from the left */
+    right: auto; /* Remove right positioning */
+}
+
+.footer-links ul {
+    padding-left: 0; /* Remove default padding */
+    text-align: left; /* Align text to the left */
 }
 
 .footer-links ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .footer-links ul li a {
     color: #003366;
     transition: color 0.3s;
+    font-size: 1.05rem;
+    padding: 5px 0;
+    display: inline-block;
 }
 
 .footer-links ul li a:hover {
-    color: #003366;
+    color: #001a33;
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 51, 102, 0.2);
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 1.05rem;
 }
 
 /* WhatsApp Button */
 .whatsapp-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
     width: 60px;
     height: 60px;
     background-color: #25D366;
@@ -739,8 +909,34 @@ footer {
     transform: scale(1.1);
 }
 
+/* Position both buttons at the bottom right, stacked vertically but close together */
+.whatsapp-btn.top {
+    bottom: 90px; /* Ubah nilai ini menjadi lebih kecil untuk mendekatkan tombol, misalnya 85px */
+    right: 20px;
+    font-size: 2rem;
+}
+
+.whatsapp-btn.bottom {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Make top button slightly different */
+.whatsapp-btn.top {
+    background-color: #25D366; /* Slightly darker green */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
+    body {
+        background-size: 200% auto; /* Make background larger on mobile */
+    }
+    
+    main section {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
     header {
         flex-direction: column;
         padding: 10px;
@@ -787,9 +983,65 @@ footer {
         padding: 20px;
     }
     
-    .contact-grid,
     .footer-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column on mobile */
+        text-align: left; /* Align text to left instead of center */
+        gap: 30px; /* Reduced gap for mobile */
+    }
+    
+    .footer-content > div:nth-child(1),
+    .footer-content > div:nth-child(2),
+    .footer-content > div:nth-child(3) {
+        justify-self: start; /* Align all columns to left */
+        width: 100%; /* Full width */
+        padding-left: 20px; /* Add consistent left padding */
+        padding-right: 20px; /* Add consistent right padding */
+    }
+    
+    .footer-contact h3::after,
+    .footer-links h3::after {
+        left: 0; /* Align underline to left */
+        right: auto;
+        transform: none; /* Remove transform */
+    }
+    
+    .footer-contact p {
+        justify-content: flex-start; /* Align contact info to left */
+        text-align: left;
+    }
+    
+    .footer-contact p.address {
+        align-items: flex-start; /* Align address to left */
+        text-align: left;
+    }
+    
+    .footer-links {
+        text-align: left; /* Align quick links to left */
+    }
+    
+    .footer-links h3 {
+        text-align: left; /* Align quick links heading to left */
+    }
+    
+    .footer-links ul {
+        text-align: left; /* Align quick links list to left */
+        padding-left: 0; /* Remove default padding */
+    }
+    
+    /* Social icons alignment */
+    .social-icons {
+        justify-content: flex-start; /* Align social icons to left */
+    }
+    
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.7rem;
+    }
+    
+    .whatsapp-btn.top {
+        bottom: 80px; /* Adjust for smaller button size */
+        font-size: 1.5rem;
     }
 }
 
@@ -803,12 +1055,75 @@ footer {
         font-size: 1.8rem;
     }
     
+    .hero p {
+        font-size: 1rem;
+    }
+    
     .gallery-filter {
         flex-direction: column;
     }
     
     .filter-btn {
         margin: 5px 0;
+    }
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        text-align: left; /* Align text to left instead of center */
+        gap: 30px; /* Reduced gap for mobile */
+    }
+    
+    .footer-content > div:nth-child(1),
+    .footer-content > div:nth-child(2),
+    .footer-content > div:nth-child(3) {
+        justify-self: start; /* Align all columns to left */
+        width: 100%; /* Full width */
+        padding-left: 20px; /* Add consistent left padding */
+        padding-right: 20px; /* Add consistent right padding */
+    }
+    
+    .footer-contact h3::after,
+    .footer-links h3::after {
+        left: 0; /* Align underline to left */
+        right: auto;
+        transform: none; /* Remove transform */
+    }
+    
+    .footer-contact p {
+        justify-content: flex-start; /* Align contact info to left */
+        text-align: left;
+    }
+    
+    .footer-contact p.address {
+        align-items: flex-start; /* Align address to left */
+        text-align: left;
+    }
+    
+    .footer-links {
+        text-align: left; /* Align quick links to left */
+    }
+    
+    .footer-links h3 {
+        text-align: left; /* Align quick links heading to left */
+    }
+    
+    .footer-links ul {
+        text-align: left; /* Align quick links list to left */
+        padding-left: 0; /* Remove default padding */
+    }
+    
+    /* Social icons alignment */
+    .social-icons {
+        justify-content: flex-start; /* Align social icons to left */
+    }
+}
+
+/* Extra small screens (575px and down) */
+@media (max-width: 575px) {
+    .footer-content > div:nth-child(1),
+    .footer-content > div:nth-child(2),
+    .footer-content > div:nth-child(3) {
+        padding-left: 15px; /* Slightly less padding on very small screens */
+        padding-right: 15px;
     }
 }
 
@@ -818,6 +1133,7 @@ footer {
   aspect-ratio: 16 / 9;   /* browser modern */
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .carousel-container {
@@ -928,16 +1244,6 @@ footer {
 /* Base responsive settings */
 html {
     font-size: 16px;
-}
-
-body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 /* Container responsive adjustments */
@@ -1233,4 +1539,875 @@ img {
     .nav-menu.active {
         right: 0; /* Changed from left to right */
     }
+}
+
+/* Clients & Awards Section */
+.clients-awards {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.clients-awards h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #003366;
+}
+
+.clients-awards h3 {
+    font-size: 1.8rem;
+    margin: 40px 0 30px;
+    text-align: center;
+    color: #003366;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.clients-awards h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #003366;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.client-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.client-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.client-item img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.award-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.award-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.award-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.award-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.award-item:hover .award-image img {
+    transform: scale(1.05);
+}
+
+.award-content {
+    padding: 25px;
+}
+
+.award-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #003366;
+    text-align: left;
+    padding: 0;
+}
+
+.award-content h3::after {
+    display: none;
+}
+
+.award-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Call to Action Section */
+.cta-section {
+    padding: 80px 0;
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+
+.btn-outline:hover {
+    background-color: #fff;
+    color: #003366;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .hero-carousel.fullwidth {
+        height: 80vh;
+        min-height: 500px;
+    }
+    
+    .hero-carousel.fullwidth .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-carousel.fullwidth .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .about-content {
+        order: 2;
+    }
+    
+    .awards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel.fullwidth {
+        height: 70vh;
+        min-height: 400px;
+    }
+    
+    .hero-carousel.fullwidth .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-carousel.fullwidth .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .service-highlights {
+        margin-top: -60px;
+        padding: 60px 0;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .highlight-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .highlight-icon i {
+        font-size: 2rem;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    
+    .award-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-carousel.fullwidth {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .hero-carousel.fullwidth .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-carousel.fullwidth .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    
+    .service-highlights {
+        margin-top: -40px;
+        padding: 40px 0;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .client-item {
+        height: 100px;
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .award-image {
+        height: 160px;
+    }
+    
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Hero Carousel - Full Width Style (like indahonline.com) */
+.hero-carousel.fullwidth {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    min-height: 600px;
+    margin-top: 0;
+    position: relative;
+}
+
+.hero-carousel.fullwidth .carousel-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-carousel.fullwidth .carousel-slide:nth-child(1) {
+    background-image: url('img/hero-global.jpg');
+}
+
+.hero-carousel.fullwidth .carousel-slide:nth-child(2) {
+    background-image: url('img/hero-freight.jpg');
+}
+
+.hero-carousel.fullwidth .carousel-slide:nth-child(3) {
+    background-image: url('img/hero-customs.jpg');
+}
+
+.hero-carousel.fullwidth .hero-content {
+    max-width: 800px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-carousel.fullwidth .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-carousel.fullwidth .hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.hero-btn {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+/* Service Highlights (like indahonline.com) */
+.service-highlights {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 2;
+    margin-top: -80px; /* Overlap with hero section */
+    border-radius: 10px 10px 0 0;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.highlight-item {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.highlight-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #003366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.highlight-icon i {
+    font-size: 2.5rem;
+}
+
+.highlight-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+.highlight-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Call to Action Section */
+.cta-section {
+    padding: 80px 0;
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+
+.btn-outline:hover {
+    background-color: #fff;
+    color: #003366;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .hero-carousel.fullwidth {
+        height: 80vh;
+        min-height: 500px;
+    }
+    
+    .hero-carousel.fullwidth .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-carousel.fullwidth .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .about-content {
+        order: 2;
+    }
+    
+    .awards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel.fullwidth {
+        height: 70vh;
+        min-height: 400px;
+    }
+    
+    .hero-carousel.fullwidth .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-carousel.fullwidth .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .service-highlights {
+        margin-top: -60px;
+        padding: 60px 0;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .highlight-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .highlight-icon i {
+        font-size: 2rem;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    
+    .award-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-carousel.fullwidth {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .hero-carousel.fullwidth .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-carousel.fullwidth .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    
+    .service-highlights {
+        margin-top: -40px;
+        padding: 40px 0;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .client-item {
+        height: 100px;
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .award-image {
+        height: 160px;
+    }
+    
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Animasi tambahan untuk melengkapi AOS */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animasi untuk highlight-icon */
+.highlight-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animasi untuk tombol CTA */
+.cta-buttons .btn {
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi untuk client-item */
+.client-item:hover img {
+    animation: pulse 1s ease-in-out;
+}
+
+/* Animasi untuk social-icons */
+.social-icons a {
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Animasi untuk WhatsApp button */
+.whatsapp-btn {
+    animation: pulse 2s infinite;
+}
+
+/* Efek hover untuk award-item */
+.award-item {
+    transition: all 0.5s ease;
+}
+
+.award-item:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Animasi untuk hero-content */
+.hero-content h1 {
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-content p {
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: both;
+}
+
+.hero-content .btn {
+    animation: fadeInUp 1s ease-out 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi untuk section headings */
+section h2, section h3 {
+    position: relative;
+    overflow: hidden;
+}
+
+section h2::after, 
+section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #003366;
+    transition: all 0.8s ease;
+}
+
+section h2.aos-animate::after, 
+section h3.aos-animate::after {
+    width: 80px;
+    left: calc(50% - 40px);
+}
+
+/* Animasi untuk footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #003366, transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Animasi tambahan untuk AOS */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Pastikan animasi AOS berfungsi dengan baik */
+[data-aos="fade-up"] {
+    transform: translateY(50px);
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0);
+}
+
+[data-aos="fade-right"] {
+    transform: translateX(-50px);
+}
+
+[data-aos="fade-right"].aos-animate {
+    transform: translateX(0);
+}
+
+[data-aos="fade-left"] {
+    transform: translateX(50px);
+}
+
+[data-aos="fade-left"].aos-animate {
+    transform: translateX(0);
+}
+
+[data-aos="zoom-in"] {
+    transform: scale(0.9);
+}
+
+[data-aos="zoom-in"].aos-animate {
+    transform: scale(1);
+}
+
+[data-aos="flip-left"] {
+    transform: perspective(2500px) rotateY(90deg);
+}
+
+[data-aos="flip-left"].aos-animate {
+    transform: perspective(2500px) rotateY(0);
+}
+
+/* Animasi scroll tambahan */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Variasi animasi untuk elemen berbeda */
+.highlight-item.animate-on-scroll {
+    transform: translateY(50px) scale(0.95);
+}
+
+.highlight-item.animate-on-scroll.visible {
+    transform: translateY(0) scale(1);
+}
+
+.about-image.animate-on-scroll {
+    transform: translateX(-50px);
+}
+
+.about-image.animate-on-scroll.visible {
+    transform: translateX(0);
+}
+
+.about-content.animate-on-scroll {
+    transform: translateX(50px);
+}
+
+.about-content.animate-on-scroll.visible {
+    transform: translateX(0);
+}
+
+.client-item.animate-on-scroll {
+    transform: scale(0.8);
+}
+
+.client-item.animate-on-scroll.visible {
+    transform: scale(1);
+}
+
+.award-item.animate-on-scroll {
+    transform: translateY(30px) rotateY(20deg);
+}
+
+.award-item.animate-on-scroll.visible {
+    transform: translateY(0) rotateY(0);
+}
+
+.cta-section.animate-on-scroll {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.cta-section.animate-on-scroll.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Delay berbeda untuk setiap item */
+.highlight-item:nth-child(1).animate-on-scroll,
+.client-item:nth-child(1).animate-on-scroll,
+.footer-logo.animate-on-scroll {
+    transition-delay: 0.1s;
+}
+
+.highlight-item:nth-child(2).animate-on-scroll,
+.client-item:nth-child(2).animate-on-scroll,
+.footer-contact.animate-on-scroll {
+    transition-delay: 0.2s;
+}
+
+.highlight-item:nth-child(3).animate-on-scroll,
+.client-item:nth-child(3).animate-on-scroll,
+.footer-links.animate-on-scroll {
+    transition-delay: 0.3s;
+}
+
+.highlight-item:nth-child(4).animate-on-scroll,
+.client-item:nth-child(4).animate-on-scroll {
+    transition-delay: 0.4s;
+}
+
+.client-item:nth-child(5).animate-on-scroll {
+    transition-delay: 0.5s;
+}
+
+.client-item:nth-child(6).animate-on-scroll {
+    transition-delay: 0.6s;
 }
