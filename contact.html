@@ -7,6 +7,12 @@
      <link rel="icon" href="img/logo-bcl.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init("6w6ANFLwVVItnHvcE");
+      })();
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -59,8 +65,8 @@
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
-                                    <h3>Address</h3>
-                                    <p>Your Address Line 1<br>Your Address Line 2<br>City, Country</p>
+                                    <h3 data-lang-key="address" >Address</h3>
+                                    <p data-lang-key="address_value" >Ruko Aralia Blok HY 43 No.10,<br>Patung Kuda Symphony, Kota Harapan Indah,<br>Kec.Tarumajaya, Kab.Bekasi, Jawa Barat 17214</p>
                                 </div>
                             </div>
                             
@@ -68,7 +74,7 @@
                                 <i class="fas fa-phone"></i>
                                 <div>
                                     <h3>Phone</h3>
-                                    <p>+123 456 7890<br>+123 456 7891</p>
+                                    <p>+6281584833350<br>+6281932207852</p>
                                 </div>
                             </div>
                             
@@ -76,7 +82,7 @@
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <h3>Email</h3>
-                                    <p>info@bclindo.com<br>support@bclindo.com</p>
+                                    <p>info@bclindo.com</p>
                                 </div>
                             </div>
                             
@@ -84,7 +90,14 @@
                                 <i class="fas fa-clock"></i>
                                 <div>
                                     <h3>Working Hours</h3>
-                                    <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
+                                    <p>Monday - Friday <span style="margin-left: 28px;">:</span> 9:00 AM - 6:00 PM<br>Saturday & Sunday <span style="margin-left: 3px;">:</span> Closed</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-contact-book"></i>
+                                <div>
+                                    <h3>Contact Service</h3>
+                                    <p>24 Hours / Everytime</p>
                                 </div>
                             </div>
                         </div>
@@ -92,35 +105,35 @@
                     
                     <div class="contact-form">
                         <h2>Send Us A Message</h2>
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Your Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="submit-btn">Send Message</button>
+                        <form id="emailForm">
+                          <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                          </div>
+                    
+                          <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                          </div>
+                    
+                          <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                          </div>
+                    
+                          <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                          </div>
+                    
+                          <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                          </div>
+                    
+                          <button type="submit" class="submit-btn">Send Message</button>
                         </form>
-                    </div>
+                      </div>
                 </div>
             </div>
         </section>
@@ -130,7 +143,7 @@
                 <h2>Our Location</h2>
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5!2d107.0576!3d-6.1855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c7f78d71d15%3A0x21a3d98bc7a93f0!2sKota%20Harapan%20Indah%2C%20Tarumajaya%2C%20Bekasi%20Regency%2C%20West%20Java%2017214!5e0!3m2!1sen!2sid!4v1620123456789!5m2!1sen!2sid" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.708842180552!2d106.9814297!3d-6.1502646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b005eb27649%3Afdaa8b411d932d16!2sPT.%20Bumi%20Cakra%20Logistik!5e0!3m2!1sid!2sid!4v1715409278743!5m2!1sid!2sid" 
                         width="100%" 
                         height="450" 
                         style="border:0;" 
@@ -190,15 +203,45 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     <!-- Bottom WhatsApp Button -->
-    <a href="https://wa.me/6281584833350" class="whatsapp-btn bottom" target="_blank">
+    <a href="https://wa.me/6281932207852" class="whatsapp-btn bottom" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-
          <!-- External JavaScript files -->
          <script src="js/translations.js"></script>
          <script src="js/language-switcher.js"></script>
          <script src="js/active-menu.js"></script>
          <script src="js/carousel.js"></script>
          <script src="js/mobile-menu.js"></script>
+
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="js/aos-init.js"></script>
+        <script src="js/scroll-effect.js"></script>
+
+
+        <script>
+            document.getElementById("emailForm").addEventListener("submit", function(e) {
+              e.preventDefault();
+        
+              const templateParams = {
+                name: this.name.value,
+                email: this.email.value,
+                phone: this.phone.value,
+                subject: this.subject.value,
+                message: this.message.value,
+                time: new Date().toLocaleString('id-ID')
+              };
+        
+              emailjs.send("service_h3j4k2c", "template_d54nh7r", templateParams)
+                .then(function(response) {
+                  alert("Pesan berhasil dikirim!");
+                  window.location.reload();
+                }, function(error) {
+                  console.log("Gagal:", error);
+                  alert("Gagal mengirim pesan.");
+                });
+            });
+          </script>
+
 </body>
 </html>

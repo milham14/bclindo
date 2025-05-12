@@ -378,6 +378,7 @@ section h2 {
 
 .service-card p {
     text-align: justify;
+    color: #003366;
 }
 
 .service-card:hover {
@@ -450,12 +451,8 @@ section h2 {
 
 /* World Map Background */
 .world-map-bg {
-    background-image: url('img/world-map.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
     padding: 60px 20px;
-    text-align: center;
+    text-align: justify;
     position: relative;
 }
 
@@ -466,7 +463,6 @@ section h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
     z-index: -1;
 }
 
@@ -479,7 +475,8 @@ section h2 {
 .about-section h3,
 .business-scope h3 {
     font-size: 1.5rem;
-    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto 30px;
     color: #003366;
 }
 
@@ -488,6 +485,7 @@ section h2 {
     max-width: 800px;
     margin: 0 auto 30px;
     font-size: 1.1rem;
+    color: #003366;
 }
 
 /* Vision Mission Section */
@@ -504,24 +502,35 @@ section h2 {
 }
 
 .vision h2, .mission h2 {
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
+}
+
+.vision p, .mission p {
+    color: #003366;
+    text-align: justify;
 }
 
 /* Services Grid Section */
 .services-intro h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     max-width: 800px;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
 .service-box {
-    background-color: #222;
-    color: #fff;
+    background-color: #ffbc00;
+    color: #003366;
+    text-align: justify;
     padding: 30px;
     border-radius: 5px;
     transition: transform 0.3s;
+}
+
+.service-box h3 {
+    text-align: center;
 }
 
 .service-box:hover {
@@ -547,7 +556,7 @@ section h2 {
 .service-box h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #fff;
+    color: #003366;
 }
 
 /* Additional Services */
@@ -753,7 +762,7 @@ section h2 {
 /* Footer */
 footer {
     background-color: #00c4cc;
-    color: #003366;
+    color: #002244;
     padding: 60px 0 30px;
     position: relative;
     z-index: 1;
@@ -803,7 +812,7 @@ footer {
     left: 0;
     width: 60px;
     height: 3px;
-    background-color: #003366;
+    background-color: #002244;
 }
 
 /* Contact section improvements - with better alignment */
@@ -866,7 +875,7 @@ footer {
 }
 
 .footer-links ul li a {
-    color: #003366;
+    color: #002244;
     transition: color 0.3s;
     font-size: 1.05rem;
     padding: 5px 0;
@@ -1552,26 +1561,6 @@ html {
     margin-bottom: 50px;
     text-align: center;
     color: #003366;
-}
-
-.clients-awards h3 {
-    font-size: 1.8rem;
-    margin: 40px 0 30px;
-    text-align: center;
-    color: #003366;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.clients-awards h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: #003366;
 }
 
 .clients-grid {
