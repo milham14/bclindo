@@ -9,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = "youremail@domain.com"; // ganti dengan email kamu
     $subject = "Pesan Baru: $subject";
     $message = "Nama: $name\n";
-    $message .= "Email: $email\n";
-    $message .= "Telepon: $phone\n";
-    $message .= "Subjek: $subject\n";
-    $message .= "Pesan:\n$message";
+    $message = "Email: $email\n";
+    $message = "Telepon: $phone\n";
+    $message = "Subjek: $subject\n";
+    $message = "Pesan:\n$message";
 
     $headers = "From: $email";
 
