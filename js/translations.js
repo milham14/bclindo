@@ -200,5 +200,13 @@ const translations = {
     "freight-p": {
         "en": "We are indeed the best shipping service that we have done according to the SOP, doing so is not easy but as a delivery service it is appropriate to provide all the needs you need. we are the solution and let us do it for you.",
         "id": "Sebagai jasa pengiriman yang terbaik kami sudah melakukan sesuai dengan SOP, melakukan hal tersebut memang tidak mudah namun sebagai jasa pengiriman sudah sepantasnya memberikan semua kebutuhan yang anda butuhkan. kami adalah solusinya dan biarkan kami yang melakukannya untuk anda."
-    }
+    },
+    "service-air": {
+        "en": "Air Freight",
+        "id": "Pengiriman Udara"
+    },
+    "air-p": {
+        "en": "We understand Air shipping is urgent. Through our strong relationships with various Airlines and overseas agents, we are able to provide reliable and cost-effective services to meet customer expectations.",
+        "id": "Kami mengetahui bahwa pengiriman melalui udara sangatlah penting. Melalui kemitraan yang kuat dengan berbagai maskapai penerbangan dan agen di luar negeri, kami dapat menyediakan layanan yang andal dan hemat biaya untuk memenuhi harapan pelanggan."
+    },
 };
