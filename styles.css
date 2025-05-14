@@ -936,17 +936,19 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 999;
     transition: transform 0.3s;
+    text-decoration: none;
 }
 
+/* Hover effect */
 .whatsapp-btn:hover {
     transform: scale(1.1);
 }
 
 /* Position both buttons at the bottom right, stacked vertically but close together */
 .whatsapp-btn.top {
-    bottom: 90px; /* Ubah nilai ini menjadi lebih kecil untuk mendekatkan tombol, misalnya 85px */
+    bottom: 90px;
     right: 20px;
-    font-size: 2rem;
+    background-color: #25D366;
 }
 
 .whatsapp-btn.bottom {
@@ -954,10 +956,29 @@ footer {
     right: 20px;
 }
 
-/* Make top button slightly different */
-.whatsapp-btn.top {
-    background-color: #25D366; /* Slightly darker green */
+/* Tooltip Custom */
+.whatsapp-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%; /* tooltip muncul di atas button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
 }
+
+.whatsapp-btn:hover::after {
+    opacity: 1;
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
