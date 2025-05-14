@@ -689,10 +689,9 @@ section h2 {
 
 .hour-row {
   display: grid;
-  grid-template-columns: 150px 10px auto; /* Bisa diubah sesuai kebutuhan */
-  gap: 10px;
+  grid-template-columns: 130px 8px auto; /* Bisa diubah sesuai kebutuhan */
   margin-bottom: 5px;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: lighter;
   color: #002244;
 }
