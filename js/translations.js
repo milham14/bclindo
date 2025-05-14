@@ -101,7 +101,7 @@ const translations = {
     id: "Alamat",
   },
   address_value: {
-    en: "Aralia Shophouse Block HY 43 No.10, Symphony Horse Statue, Harapan Indah City, Tarumajaya District, Bekasi Regency, West Java 17214",
+    en: "Ruko Aralia Block HY 43 No.10, Patung Kuda Symphony, Harapan Indah City, Tarumajaya District, Bekasi Regency, West Java 17214",
     id: "Ruko Aralia Blok HY 43 No.10, Patung Kuda Symphony, Kota Harapan Indah, Kec.Tarumajaya, Kab.Bekasi, Jawa Barat 17214",
   },
   phone: {
@@ -374,7 +374,7 @@ const translations = {
   },
     "phone-2": {
     en: "Phone Number",
-    id: "Nomot Telepon",
+    id: "Nomor Telepon",
   },
     "subjek-2": {
     en: "Subject",
