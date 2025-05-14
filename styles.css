@@ -669,6 +669,7 @@ section h2 {
 
 .contact-info p {
     margin-bottom: 30px;
+    color: #002244;
 }
 
 .contact-details {
@@ -678,6 +679,28 @@ section h2 {
 .contact-item {
     display: flex;
     margin-bottom: 20px;
+}
+
+.working-hour h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.hour-row {
+  display: grid;
+  grid-template-columns: 150px 10px auto; /* Bisa diubah sesuai kebutuhan */
+  gap: 10px;
+  margin-bottom: 5px;
+  font-size: 17px;
+  font-weight: lighter;
+  color: #002244;
+}
+
+.day,
+.colon,
+.time {
+  line-height: 1.5;
 }
 
 .contact-item i {
@@ -729,6 +752,7 @@ section h2 {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: #003366;
 }
 
 .form-group input,

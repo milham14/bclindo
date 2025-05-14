@@ -312,4 +312,84 @@ const translations = {
     en: "Modern Storage Facilities ",
     id: "Fasilitas Penyimpanan Modern",
   },
+    "contact-us": {
+    en: "CONTACT US",
+    id: "HUBUNGI KAMI",
+  },
+    "contact-info": {
+    en: "Get In Touch",
+    id: "Silahkan Hubungi Kami",
+  },
+    "contact-info-p": {
+    en: "We're here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as we can.",
+    id: "Kami siap menjawab pertanyaan apa pun yang Anda miliki tentang layanan kami. Hubungi kami dan kami akan merespons sesegera mungkin.",
+  },
+    "phone": {
+    en: "Phone",
+    id: "Telepon",
+  },
+    "email": {
+    en: "Email",
+    id: "Email",
+  },
+    "hour": {
+    en: "Working Hours",
+    id: "Jam Kerja",
+  },
+    "date-1": {
+    en: "Monday - Friday",
+    id: "Senin - Jumat",
+  },
+    "date-2": {
+    en: "Saturday & Sunday",
+    id: "Sabtu & Minggu",
+  },
+    "time-1": {
+    en: "9:00 AM - 6:00 PM",
+    id: "09:00 - 18:00",
+  },
+    "time-2": {
+    en: "Closed",
+    id: "Tutup",
+  },
+    "contact-ser": {
+    en: "Contact Service",
+    id: "Menghubungi Layanan",
+  },
+    "contact-p": {
+    en: "24 Hours / Everytime",
+    id: "24 Jam / Setiap Waktu",
+  },
+    "send-us": {
+    en: "Send Us A Message",
+    id: "Kirim Pesan Kepada Kami",
+  },
+    "name-2": {
+    en: "Full Name",
+    id: "Nama Lengkap",
+  },
+    "email-2": {
+    en: "Email Address",
+    id: "Alamat Email",
+  },
+    "phone-2": {
+    en: "Phone Number",
+    id: "Nomot Telepon",
+  },
+    "subjek-2": {
+    en: "Subject",
+    id: "Subjek",
+  },
+    "message-2": {
+    en: "Your Message",
+    id: "Pesan Kamu",
+  },
+    "send-2": {
+    en: "Send Message",
+    id: "Kirim Pesan",
+  },
+    "loc-2": {
+    en: "Our Location",
+    id: "Lokasi Kami",
+  },
 };
