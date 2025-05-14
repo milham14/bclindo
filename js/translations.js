@@ -256,4 +256,60 @@ const translations = {
     en: "Professional packaging services to ensure safe delivery.",
     id: "Layanan pengemasan profesional untuk memastikan pengiriman yang aman.",
   },
+  "gallery": {
+    en: "OUR GALLERY",
+    id: "GALERI KAMI",
+  },
+    "all": {
+    en: "All",
+    id: "Semua",
+  },
+    "air": {
+    en: "Air Freight",
+    id: "Pengiriman Udara",
+  },
+    "ocean": {
+    en: "Ocean Freight ",
+    id: "Pengiriman Laut",
+  },
+    "land": {
+    en: "Land Transportation ",
+    id: "Transportasi Jalur Darat",
+  },
+    "ware": {
+    en: "Warehousing ",
+    id: "Pergudangan",
+  },
+    "air-1": {
+    en: "Air Freight Service",
+    id: "Layanan Pengiriman Udara",
+  },
+    "air-p": {
+    en: "International Air Freight Delivery",
+    id: "Pengiriman Barang Melalui Udara Internasional",
+  },
+    "ocean-1": {
+    en: "Ocean Freight Service",
+    id: "Layanan Pengiriman Laut",
+  },
+    "ocean-p": {
+    en: "Container Shipping Worldwide",
+    id: "Pengiriman Peti Kemas ke Seluruh Dunia Laut",
+  },
+    "land-1": {
+    en: "Land Transportation ",
+    id: "Transportasi Jalur Darat",
+  },
+    "land-p": {
+    en: "Efficient Road Delivery ",
+    id: "Pengiriman Jalan yang Efisien",
+  },
+    "ware-1": {
+    en: "Warehousing ",
+    id: "Pergudangan",
+  },
+    "ware-p": {
+    en: "Modern Storage Facilities ",
+    id: "Fasilitas Penyimpanan Modern",
+  },
 };

@@ -622,9 +622,10 @@ section h2 {
 }
 
 .gallery-item img {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: 100% auto;
     transition: transform 0.5s;
 }
 
